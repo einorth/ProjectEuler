@@ -1,6 +1,4 @@
-#include<vector>
-#include<iostream>
-#include<cmath>
+#include "../euler_tools.cc"
 using namespace std;
 
 vector<int> sieve(int);
