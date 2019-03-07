@@ -2,12 +2,22 @@
 #include<cmath>
 #include<vector>
 #include<cstdlib>
+#include<string>
 using namespace std;
 
+// Greatest Common Divisor (GCD) of two numbers
 int gcd(int,int);
+// Least Common Multiple (LCM) of two numbers
 int lcm(int,int);
+// Generate a vector of primes less than or equal to n
 vector<int> sieve(int);
+// Check if a number is a palindrome
+bool is_palindrome(int);
+// Generate a vector of fibonacci numbers less than or equal to n
+vector<int> fib_gen(int);
 
+
+// Greatest Common Divisor (GCD) of two numbers
 int gcd(int a, int b){
   int tmp;
   while(b!=0){
@@ -18,6 +28,7 @@ int gcd(int a, int b){
   return(a);
 }
 
+// Least Common Multiple (LCM) of two numbers
 int lcm(int a, int b){
   long int a1 = a;
   long int b1 = b;
@@ -25,7 +36,7 @@ int lcm(int a, int b){
   int t = a1*b1/gcd(a,b);
   return(t);
 }
-
+// Generate a vector of primes less than or equal to n
 vector<int> sieve(int n) {
     vector<bool> nums(n, true);
     vector<int> prime;
@@ -41,4 +52,38 @@ vector<int> sieve(int n) {
     }
 
     return(prime);
+}
+
+// Check if a number is a palindrome
+bool is_palindrome(int n){
+  string num = to_string(n);
+  int checks = num.length() / 2;
+
+  for(int i=0; i<checks; ++i){
+    if(num.back() == num[i]){
+      num.pop_back();
+    }else{
+      return(false);
+    }
+  }
+
+  return(true);
+}
+
+// Generate a vector of fibonacci numbers less than or equal to n
+vector<int> fib_gen(int n){
+  int a1 = 1;
+  int a2 = 2;
+  vector<int> fib; fib.push_back(a1); fib.push_back(a2);
+
+  int tmp = a1+a2;
+
+  while(tmp < n) {
+    fib.push_back(tmp);
+    a1 = a2;
+    a2 = tmp;
+    tmp = a1+a2;
+  }
+
+  return fib;
 }

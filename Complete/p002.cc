@@ -1,8 +1,6 @@
-#include<iostream>
-#include<vector>
+#include "../euler_tools.cc"
 using namespace std;
 
-vector<int> fib_gen(int);
 
 int main(){
   int limit;
@@ -19,21 +17,4 @@ int main(){
 
   cout << "The sum of the even Fibonacci numbers up to " << limit << " is " << ans << endl;
   return(0);
-}
-
-vector<int> fib_gen(int n){
-  int a1 = 1;
-  int a2 = 2;
-  vector<int> fib; fib.push_back(a1); fib.push_back(a2);
-
-  int tmp = a1+a2;
-
-  while(tmp < n) {
-    fib.push_back(tmp);
-    a1 = a2;
-    a2 = tmp;
-    tmp = a1+a2;
-  }
-
-  return fib;
 }
