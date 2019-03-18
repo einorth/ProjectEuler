@@ -3,8 +3,11 @@
 #include<vector>
 #include<cstdlib>
 #include<string>
+#include<fstream>
 using namespace std;
 
+// Generate parametrized Pythagorean triple
+vector<int> pyth_gen(int,int);
 // Greatest Common Divisor (GCD) of two numbers
 int gcd(int,int);
 // Least Common Multiple (LCM) of two numbers
@@ -16,6 +19,15 @@ bool is_palindrome(int);
 // Generate a vector of fibonacci numbers less than or equal to n
 vector<int> fib_gen(int);
 
+// Generate parametrized Pythagorean triple
+vector<int> pyth_gen(int m, int n){
+  vector<int> pyth(3);
+  pyth[0] = m*m - n*n;
+  pyth[1] = 2*m*n;
+  pyth[2] = m*m + n*n;
+
+  return(pyth);
+}
 
 // Greatest Common Divisor (GCD) of two numbers
 int gcd(int a, int b){
